@@ -6,7 +6,7 @@
 1. Ensure any existing Puppet Extension installs are [gone/deleted](#ensuring-a-clean-slate)
 1. Disable Extension [auto-update](#disabling-autoupdate)
 1. Install from [VSIX](https://code.visualstudio.com/docs/editor/extension-gallery#_install-from-a-vsix)
-1. Follow the [checklist](/checklist.md)
+1. Follow the [checklist](/testing/checklist.md)
 
 ## General Comments
 
@@ -16,22 +16,32 @@ VSCode tries to make installing extensions as easy as possible for the user. One
 
 1. Open VSCode and uninstall any existing Puppet VSCode extensions
 
-```
-> code --list-extensions
-jpogran.puppet-vscode
-> code --uninstall-extenion jpogran.puppet-vscode
-```
+    ```
+    > code --list-extensions
+    jpogran.puppet-vscode
+    > code --uninstall-extenion jpogran.puppet-vscode
+    ```
 
 1. Delete any remaining Puppet Extension folders inside $home/.vscode
 
+    ```
+    > ls $home/.vscode/extensions
+
+        Directory: C:\Users\james\.vscode\extensions
+
+    Mode                LastWriteTime         Length Name
+    ----                -------------         ------ ----
+    d-----       11/28/2018  10:17 AM                jpogran.puppet-vscode-0.14.0
+    ```
+
+## Disabling Autoupdate
+
+1. Open the Extensions toolbar
+1. Click on the `...` button to the right of the `Extensions` title
+1. Click `Disable Auto Updating Extensions`
+
+Alternatively you can edit your `User Settings` manually by adding the following:
+
+```json
+"extensions.autoUpdate": true
 ```
-> ls $home/.vscode/extensions
-
-    Directory: C:\Users\james\.vscode\extensions
-
-Mode                LastWriteTime         Length Name
-----                -------------         ------ ----
-d-----       11/28/2018  10:17 AM                jpogran.puppet-vscode-0.14.0
-```
-
-1.
